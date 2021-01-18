@@ -15,9 +15,9 @@ app = Flask(__name__)
 
 """Required for auth.
 env variables:
-    - export SPOTIPY_CLIENT_ID='##'
-    - export SPOTIPY_CLIENT_SECRET='##'
-    - export SPOTIPY_REDIRECT_URI='http://{domain}/oauth/callback'
+    - export SPOTIPY_CLIENT_ID='your-spotify-client-id'
+    - export SPOTIPY_CLIENT_SECRET='your-spotify-client-secret'
+    - export SPOTIPY_REDIRECT_URI='your-app-redirect-url'
 """
 
 # Scopes allow third party apps to display what information will be gathered
@@ -59,7 +59,8 @@ def spotify_redirect():
 def top_tracks():
     access_token = session['access_token']
     spotify_api = spotipy.Spotify(access_token)
-    result = spotify_api.current_user_top_tracks()
+    option = request.args['time_range']
+    result = spotify_api.current_user_top_tracks(time_range=option)
 
     all_results = []
     for track in result['items']:
@@ -87,3 +88,10 @@ def currently_playing():
         current_playing['image'] = current_song_result['album']['images'][0]['url']
         current_playing['artist'] = current_song_result['artists'][0]['name']
     return render_template('currently_playing.html', current_playing=current_playing)
+
+
+@app.route('/currently_playing', methods=['GET'])
+def currently_playing():
+    access_token = session['access_token']
+    spotify_api = spotipy.Spotify(access_token)
+    result = spotify_api.current_user_top_tracks()

@@ -2,10 +2,7 @@
 {% block title %}{% endblock %}
 
 {% block content %}
-<div class="container-fluid mt-5 d-flex justify-content-center">
-    {% for item in sorted_array%}
-    <p class=""> {{ item }} </p>
-    <p> {{ item.display_name }} </p>
-    {% endfor %}
-</div>
+{% for item in sorted_array%}
+<p>{{ item }}</p>
+{% endfor %}
 {% endblock %}

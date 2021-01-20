@@ -87,11 +87,19 @@ def callback():
     # Get user playlist data
     playlist_api_endpoint = f'{profile_data["href"]}/playlists'
     playlist_response = requests.get(
-        playlist_api_endpoint, headers=authorization_header)
+        playlist_api_endpoint, headers=authorization_header
+    )
     playlist_data = json.loads(playlist_response.text)
 
+    # Get top songs
+    top_api_endpoint = f'{SPOTIFY_API_URL}/me/top/tracks'
+    top_response = requests.get(
+        top_api_endpoint, headers=authorization_header
+    )
+    top_data = json.loads(top_response.text)
+
     # Combine profile and playlist data to display
-    display_arr = [profile_data] + playlist_data['items']
+    display_arr = [top_data]
     return render_template('index.html', sorted_array=display_arr)
 
 

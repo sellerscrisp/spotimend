@@ -9,7 +9,6 @@ from flask import (
 )
 import spotipy
 from spotipy import oauth2
-import config
 
 app = Flask(__name__)
 

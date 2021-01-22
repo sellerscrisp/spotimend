@@ -30,7 +30,7 @@ class SpotifyHandler:
         Return a list of track data.
         """
 
-        user_tracks_endpoint = f'{self.SPOTIFY_API_URL}/me/tracks?time_range={time_range}&limit=30'
+        user_tracks_endpoint = f'{self.SPOTIFY_API_URL}/me/tracks?time_range={time_range}&limit=25'
         tracks = json.loads(requests.get(
             user_tracks_endpoint, headers=auth_header).text)
         tracks = tracks['items']
@@ -110,7 +110,7 @@ class SpotifyHandler:
         From the 10 most recently played songs on a user's profile.
         """
 
-        user_recently_played_endpoint = f'{self.SPOTIFY_API_URL}/me/player/recently-played?limit=10'
+        user_recently_played_endpoint = f'{self.SPOTIFY_API_URL}/me/player/recently-played?limit=5'
         recently_played = json.loads(requests.get(
             user_recently_played_endpoint, headers=auth_header).text)
         recently_played = recently_played['items']

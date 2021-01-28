@@ -27,4 +27,4 @@ def callback():
     client.get_auth(token)
     authorization_header = client.authorization_header
     session['authorization_header'] = authorization_header
-    # return redirect(**to results**)
+    return redirect(url_for('redirect.redirect'))

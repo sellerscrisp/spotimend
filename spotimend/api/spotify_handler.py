@@ -30,7 +30,7 @@ class SpotifyHandler:
         Return a list of track data.
         """
 
-        user_tracks_endpoint = f'{self.SPOTIFY_API_URL}/me/tracks?time_range={time_range}&limit=25'
+        user_tracks_endpoint = f'{self.SPOTIFY_API_URL}/me/top/tracks?time_range={time_range}&limit=20'
         tracks = json.loads(requests.get(
             user_tracks_endpoint, headers=auth_header).text)
         tracks = tracks['items']
@@ -39,17 +39,18 @@ class SpotifyHandler:
 
         for track in tracks:
             track_data.append({
-                'artst_name': track['artists']['name'],
-                'artist_id': track['artists']['id'],
-                'artist_uri': track['artists']['uri'],
-                'artist_url': track['artists']['external_urls']['spotify'],
+                'artist_name': track['album']['artists'][0]['name'],
+                'artist_id': track['album']['artists'][0]['id'],
+                'artist_uri': track['artists'],
+                # 'artist_url': track['artists']['external_urls']['spotify'],
                 'track_name': track['name'],
                 'track_id': track['id'],
                 'track_uri': track['uri'],
-                'track_url': track['external_urls']['spotify'],
+                'track_id': track['id'],
+                # 'track_url': track['external_urls']['spotify'],
                 'track_img': track['album']['images'][0]['url'],
-                'track_popularity': track['popularity'],
-                'track_preview': track['preview_url'],
+                'track_popularity': track['popularity']
+                # 'track_preview': track['preview_url'],
             })
         return track_data
 
@@ -57,25 +58,27 @@ class SpotifyHandler:
         """Get audio features for a single track.
 
         Return a list of a song's audio features. Uses the song's id
-        as an input. 
+        as an input.
         """
 
+        # single_audio_features_endpoint = f'{self.SPOTIFY_API_URL}/audio-features/{song_id}'
         single_audio_features_endpoint = f'{self.SPOTIFY_API_URL}/audio-features/{song_id}'
-        audio_features = json.loads(requests.get(
-            single_audio_features_endpoint, headers=auth_header).text)
+        audio_features = requests.get(
+            single_audio_features_endpoint, headers=auth_header)
+        audio_features = audio_features
 
         audio_features_data = []
 
         for feature in audio_features:
             audio_features_data.append({
-                'danceability': feature['danceability'],
-                'energy': feature['energy'],
-                'loudness': feature['loudness'],
-                'speechiness': feature['speechiness'],
-                'acousticness': feature['acousticness'],
-                'instrumentalness': feature['instrumentalness'],
-                'tempo': feature['tempo'],
-                'uri': feature['uri'],
+                'danceability': feature[0],
+                'energy': feature[1],
+                # 'loudness': feature['loudness'],
+                # 'speechiness': feature['speechiness'],
+                # 'acousticness': feature['acousticness'],
+                # 'instrumentalness': feature['instrumentalness'],
+                # 'tempo': feature['tempo'],
+                # 'uri': feature['uri'],
             })
         return audio_features_data
 
@@ -88,29 +91,29 @@ class SpotifyHandler:
         user_curr_playing_endpoint = f'{self.SPOTIFY_API_URL}/me/player/currently-playing?market=US'
         curr_playing = json.loads(requests.get(
             user_curr_playing_endpoint, headers=auth_header).text)
-        curr_playing = curr_playing['item']
+        curr_playing = curr_playing[1]['item']
 
         curr_data = []
 
         for curr in curr_playing:
             curr_data.append({
-                'track_img': curr['album']['images'][0]['url'],
-                'track_artist': curr['artists']['name'],
-                'track_name': curr['name'],
-                'track_id': curr['id'],
+                # 'track_img': curr['album']['images'][0]['url'],
+                # 'track_artist': curr['artists']['name'],
+                # 'track_name': curr['name'],
+                # 'track_id': curr['id'],
                 'track_uri': curr['uri'],
-                'track_url': curr['external_urls']['spotify'],
-                'track_preview': curr['preview_url'],
+                # 'track_url': curr['external_urls']['spotify'],
+                # 'track_preview': curr['preview_url'],
             })
         return curr_data
 
     def get_recently_played_data(self, auth_header):
         """Get user's recently played songs.
 
-        From the 10 most recently played songs on a user's profile.
+        From the 6 most recently played songs on a user's profile.
         """
 
-        user_recently_played_endpoint = f'{self.SPOTIFY_API_URL}/me/player/recently-played?limit=5'
+        user_recently_played_endpoint = f'{self.SPOTIFY_API_URL}/me/player/recently-played?limit=10'
         recently_played = json.loads(requests.get(
             user_recently_played_endpoint, headers=auth_header).text)
         recently_played = recently_played['items']
@@ -119,11 +122,7 @@ class SpotifyHandler:
 
         for track in recently_played:
             recently_data.append({
-                'track_img': track['track']['album']['images'][0]['spotify'],
-                'track_artist': track['track']['artists']['name'],
-                'track_name': track['track']['name'],
-                'track_id': track['track']['id'],
-                'track_uri': track['track']['uri'],
-                'track_preview': track['track']['preview_url']
+                'artist_name': track['track']['album']['artists'][0]['name'],
             })
+
         return recently_data

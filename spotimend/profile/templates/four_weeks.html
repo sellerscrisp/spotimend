@@ -1,0 +1,54 @@
+{% from '_modal.html' import render_modal %}
+<table class="table table-responsive">
+    <thead class="text-uppercase">
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Title</th>
+            <th scope="col"></th>
+            <th class="popularity" scope="col justify-content-end">Popularity</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <div class="row d-flex align-items-center">
+        <tbody class="">
+            {% for track in top_tracks_short %}
+            {% set artist_name = track['artist_name'] %}
+            {% set artist_id = track['artist_id'] %}
+            {% set track_img = track['track_img'] %}
+            {% set track_img = track['track_img'] %}
+            {% set track_name = track['track_name'] %}
+            {% set track_popularity = track['track_popularity'] %}
+            {% set track_id = track['track_id'] %}
+            <tr>
+                <td id="heart">
+                    <div value="{{ track_id }}">
+                        <i class="far fa-heart"></i>
+                    </div>
+                </td>
+                <td style="width: 60px;">
+                    <img src="{{ track_img }}" alt="" class="img-fluid thumbnail">
+                </td>
+                <td class="title-table">
+                    {{ track_name }}
+                    <br>
+                    <span>{{ artist_name }}</span>
+                </td>
+                <td>
+                    <div class="col d-block align-baseline text-end">
+                        {{ track_popularity }}
+                    </div>
+                </td>
+                <td class="modal-btn">
+                    <form action="" method="POST">
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#myModal">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </button>
+                    </form>
+                    <!-- Modal include -- should probably find a better way to do this -->
+                    {{ render_modal("{{ track_name | safe }}", "{{ artist_name | safe }}", "{{ track_id | safe }}") }}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </div>
+</table>

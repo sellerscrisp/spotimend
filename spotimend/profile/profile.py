@@ -22,8 +22,8 @@ def profile():
             authorization_header
         )
 
-        user_display_name, user_id = profile_data['display_name'], profile_data['id']
-        session['user_id'], session['user_display_name'] = user_id, user_display_name
+        # user_display_name, user_id = profile_data_test['display_name'], profile_data_test['id']
+        # session['user_id'], session['user_display_name'] = user_id, user_display_name
 
         top_tracks_short = spotify.get_user_tracks_data(
             authorization_header,
@@ -38,7 +38,6 @@ def profile():
         return render_template(
             'profile.html',
             profile_data=profile_data,
-            user_display_name=user_display_name,
             top_tracks_short=top_tracks_short,
             top_tracks_medium=top_tracks_medium,
             func=extract_letters,

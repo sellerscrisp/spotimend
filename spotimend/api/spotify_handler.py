@@ -106,6 +106,12 @@ class SpotifyHandler:
 
         return curr_data
 
+    def refresh_data():
+        """"""
+
+        curr_data = []
+        curr_data.clear()
+
     def post_next_track(self, auth_header):
         """"""
 

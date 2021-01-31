@@ -1,0 +1,521 @@
+body {
+    font-family: 'proxima_nova_ltsemibold', Georgia, sans-serif;
+    background-color: #1f1f1f;
+}
+
+body.light {
+    font-family: 'proxima_nova_ltsemibold', Georgia, sans-serif;
+    background-color: #FFFFFF;
+    color: #1f1f1f;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+span,
+tbody,
+thead {
+    color: #FFFFFF;
+}
+
+p {
+    letter-spacing: 1.0px;
+}
+
+p.green {
+    color: #1DB954;
+}
+
+.text-success {
+    color: #1DB954
+}
+
+a {
+    cursor: pointer;
+}
+
+footer {
+    background-color: transparent;
+    border-top: 1px solid transparent;
+    padding: 15px;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 60px;
+    width: 100%;
+}
+
+footer ul li {
+    display: inline-block;
+}
+
+footer ul li a {
+    text-decoration: none;
+}
+
+.fa-spotify {
+    color: #1DB954;
+}
+
+.fa-coffee {
+    color: #4a2900bf;
+}
+
+.btn {
+    border-radius: 50px;
+}
+
+.img-profile {
+    max-width: 60px;
+}
+
+h1.profile-top,
+p.profile-top {
+    margin-left: -35px;
+    text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.2), 0px -5px 25px rgba(37, 37, 37, 0.973);
+}
+
+/* ----------------------------- Nav-link Design ---------------------------- */
+/* .nav-pills .nav-link,
+.nav-pills .show>.nav-link {
+    background-color: transparent;
+    border-color: #1db95485;
+    border-width: 1px;
+    border-style: solid;
+} */
+
+.nav-pills .nav-link,
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    background-color: transparent;
+    border-color: #1db95485;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.nav-pills .nav-link.active:hover,
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link,
+.nav-pills .show>.nav-link:hover {
+    border-color: #1db954;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.nav-link {
+    padding: .2rem 1rem
+}
+
+a {
+    color: #FFFFFF;
+    padding: 0;
+    margin: 0;
+    text-transform: uppercase;
+    font-family: 'proxima_nova_ltthin', Georgia, sans-serif;
+}
+
+a:hover {
+    color: #ffffffb6;
+}
+
+.nav-link:hover {}
+
+p.lead {
+    font-family: 'proxima_nova_ltthin', Georgia, sans-serif;
+    font-size: 14px;
+}
+
+/* ------------------------------ Track List UI ----------------------------- */
+.thumbnail {
+    width: 100px;
+    transform: scale(1.1);
+}
+
+.boxy {
+    font-size: 20px;
+    width: 120px;
+}
+
+.table,
+.table-responsive tbody tr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-color: #dbdbdb3b;
+    border-width: 1px;
+    background-color: #1db9541a;
+}
+
+.table>:not(:last-child)>:last-child>* {
+    border-bottom-color: inherit;
+}
+
+.table tbody tr:hover,
+.table-responsive tbody tr:hover {
+    /* background-color: #191414; */
+    border-color: #dbdbdb3b;
+    background-color: #1f1f1f;
+    border-width: 1px;
+}
+
+.table-responsive td {
+    margin: auto;
+    align-items: center;
+}
+
+.table-responsive tbody {
+    font-weight: lighter;
+    font-family: 'proxima_nova_ltthin', Georgia, sans-serif;
+    line-height: 1.2;
+    line-break: strict;
+    vertical-align: middle;
+}
+
+tbody .btn {
+    color: #f0f0f0;
+}
+
+tbody .btn:hover {
+    color: #FFFFFF;
+}
+
+thead {
+    background-color: #1f1f1f;
+}
+
+.table-responsive tbody tr td.title-table {
+    font-family: 'proxima_nova_ltsemibold', Georgia, sans-serif;
+    width: 200px;
+
+}
+
+.table-responsive tbody tr td.title-table span {
+    font-family: 'proxima_nova_ltthin', Georgia, sans-serif;
+    font-size: 13px;
+    top: -10px;
+    padding-bottom: 100px;
+}
+
+.table-responsive tbody tr td.modal-btn {
+    text-align: end;
+}
+
+.table-responsive thead tr {}
+
+.table-responsive thead tr:hover {
+    background-color: initial;
+}
+
+.table-responsive thead tr th.popularity {
+    text-align: end;
+}
+
+#heart {
+    text-align: center;
+    width: 20px;
+}
+
+
+/* ------------------------ bootstrap modal ------------------------ */
+.modal {
+    background: rgb(29, 185, 84);
+    background: linear-gradient(-45deg, #1db95433, #12121228, #1db9541c, #12121262);
+    background-size: 400% 400%;
+
+    animation: gradient 25s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.modal .modal-dialog .modal-content {
+    background-color: #121212;
+    border-color: #1DB954;
+}
+
+.modal-header {
+    border-bottom: 1px solid #2A2A2A;
+}
+
+.modal-footer {
+    border-top: 1px solid transparent;
+}
+
+.modal-body {
+    border-bottom: 1px solid transparent;
+}
+
+/* ------------------------------- Scroll Bar ------------------------------- */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* scrollbar Track */
+::-webkit-scrollbar-track {
+    background: rgb(25, 20, 20);
+    border-radius: 10px;
+}
+
+/* scrollbar Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(95, 95, 95, 0.877);
+    border-radius: 10px;
+}
+
+/* scrollbar Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(143, 143, 143, 0.877);
+}
+
+.tab-pane.active {
+    animation: fadimation 300ms ease-out;
+}
+
+@keyframes fadimation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* ------------------------------- modal no js ------------------------------ */
+.modal-window {
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.25);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s;
+}
+
+.modal-window:target {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-window>div {
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2em;
+    background: #121212;
+}
+
+.modal-window header {
+    font-weight: bold;
+}
+
+.modal-window h1 {
+    font-size: 150%;
+    margin: 0 0 15px;
+}
+
+.modal-close {
+    color: #aaa;
+    line-height: 50px;
+    font-size: 80%;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 70px;
+    text-decoration: none;
+}
+
+.modal-close:hover {
+    color: black;
+}
+
+/* Demo Styles */
+html,
+body {
+    height: 100%;
+}
+
+.modal-window div:not(:last-of-type) {
+    margin-bottom: 15px;
+}
+
+small {
+    color: #aaa;
+}
+
+.btn-modal {
+    background-color: #fff;
+    padding: 1em 1.5em;
+    border-radius: 3px;
+    text-decoration: none;
+}
+
+.btn-modal i {
+    padding-right: 0.3em;
+}
+
+
+/* --------------------------- Redirect animation --------------------------- */
+
+div.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+span.load {
+    width: 10px;
+    height: 80px;
+    margin: 0 3px;
+    border-radius: 50px;
+}
+
+span.load:nth-child(5) {
+    background: #1db9542c;
+    animation: a 0.7s infinite;
+}
+
+span.load:nth-child(4),
+span.load:nth-child(6) {
+    background: #1db954da;
+    animation: a1 0.8s infinite;
+}
+
+span.load:nth-child(3),
+span.load:nth-child(7) {
+    background: #1db954e5;
+    animation: a2 0.9s infinite;
+}
+
+span.load:nth-child(2),
+span.load:nth-child(8) {
+    background: #1db9549f;
+    animation: a3 1s infinite;
+}
+
+span.load:nth-child(1),
+span.load:nth-child(9) {
+    background: #1db9545d;
+    animation: a4 1.1s infinite;
+}
+
+@keyframes a {
+
+    0%,
+    100% {
+        height: 30px;
+    }
+
+    50% {
+        height: 80px;
+    }
+}
+
+@keyframes a1 {
+
+    0%,
+    100% {
+        height: 30px;
+    }
+
+    50% {
+        height: 100px;
+    }
+}
+
+@keyframes a2 {
+
+    0%,
+    100% {
+        height: 30px;
+    }
+
+    50% {
+        height: 50px;
+    }
+}
+
+@keyframes a3 {
+
+    0%,
+    100% {
+        height: 30px;
+    }
+
+    50% {
+        height: 90px;
+    }
+}
+
+@keyframes a4 {
+
+    0%,
+    100% {
+        height: 30px;
+    }
+
+    50% {
+        height: 80px;
+    }
+}
+
+
+/* --------------------------- Bootstrap Tooltips --------------------------- */
+.tooltip .tooltip-inner {
+    background-color: #1db954;
+}
+
+.tooltip.top>.tooltip-arrow {
+    border-top-color: #1db954;
+}
+
+.tooltip.right>.tooltip-arrow {
+    border-right-color: transparent;
+    background-color: transparent;
+    color: transparent;
+}
+
+.tooltip.bottom.tooltip-arrow {
+    border-bottom-color: #1db954;
+}
+
+.tooltip.left>.tooltip-arrow {
+    border-left-color: #1db954;
+}
+
+
+/* ---------------------------- Currently Playing --------------------------- */
+.card {
+    background-color: #1F3D2A;
+    border-color: #dbdbdb3b;
+    border-width: 1px;
+    border-radius: 0%;
+}
+
+.card .card-body .card-title h5 {
+    margin-bottom: 0px;
+}

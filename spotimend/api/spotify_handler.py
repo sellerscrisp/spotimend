@@ -5,12 +5,12 @@ import requests
 
 class SpotifyHandler:
     """Handle spotify requests.
-
         - get_user_profile_data()
         - get_user_tracks_data(time_range)
         - get_single_audio_features_data(song_id)
         - get_currently_playing_data()
-        - get_recently_played_data
+        - get_recently_played_data()
+        - skip, play, pause, and resume user playback
     """
 
     API_VERSION = 'v1'
@@ -113,7 +113,7 @@ class SpotifyHandler:
         curr_data.clear()
 
     def post_next_track(self, auth_header):
-        """"""
+        """Skip user playback to next track."""
 
         next_track_endpoint = f'{self.SPOTIFY_API_URL}/me/player/next'
         next_track = requests.post(next_track_endpoint, headers=auth_header)
@@ -121,7 +121,7 @@ class SpotifyHandler:
         return next_track
 
     def post_previous_track(self, auth_header):
-        """"""
+        """Skip user playback to previous track."""
 
         previous_track_endpoint = f'{self.SPOTIFY_API_URL}/me/player/previous'
         previous_track = requests.post(
@@ -132,7 +132,7 @@ class SpotifyHandler:
         return previous_track
 
     def post_pause_track(self, auth_header):
-        """"""
+        """Pause user playback."""
 
         pause_track_endpoint = f'{self.SPOTIFY_API_URL}/me/player/pause'
         pause_track = requests.post(
@@ -143,7 +143,7 @@ class SpotifyHandler:
         return pause_track
 
     def play_track(self, auth_header):
-        """"""
+        """Resume user playback."""
 
         play_track_endpoint = f'{self.SPOTIFY_API_URL}/me/player/play'
         play_track = requests.post(
@@ -159,7 +159,7 @@ class SpotifyHandler:
         From the 6 most recently played songs on a user's profile.
         """
 
-        user_recently_played_endpoint = f'{self.SPOTIFY_API_URL}/me/player/recently-played?limit=10'
+        user_recently_played_endpoint = f'{self.SPOTIFY_API_URL}/me/player/recently-played?limit=20'
         recently_played = json.loads(requests.get(
             user_recently_played_endpoint, headers=auth_header).text)
         recently_played = recently_played['items']

@@ -1,0 +1,2 @@
+# Database Models
+To fulfill the database requirement I am going to add like functionality to songs. This is made possible through the `save_song()` instance method. Upon calling the method the liked song's identifying attribututes are saved to the database with a corresponding ID.

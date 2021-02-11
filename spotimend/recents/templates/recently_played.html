@@ -17,7 +17,7 @@
             {% set track_popularity = track['track_popularity'] %}
             <tr>
                 <td id="heart">
-                    <i class="far fa-heart"></i>
+                    <!-- <i class="far fa-heart"></i> -->
                 </td>
                 <td style="width: 60px;">
                     <img src="{{ track_img }}" alt="" class="img-fluid thumbnail shadow"></td>
@@ -32,11 +32,9 @@
                     </div>
                 </td>
                 <td class="modal-btn">
-                    <form action="" method="POST">
-                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#myModal">
+                    <!-- <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#myModal">
                             <i class="fas fa-ellipsis-h"></i>
-                        </button>
-                    </form>
+                        </button> -->
                 </td>
             </tr>
             {% endfor %}

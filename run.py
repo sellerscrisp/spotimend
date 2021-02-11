@@ -7,6 +7,8 @@ production = os.environ.get('PRODUCTION', False)
 
 if __name__ == '__main__':
     if production:
-        app.run(debug=True)
+        app.jinja_env.cache = {}
+        app.run(debug=False)
     else:
+        app.jinja_env.cache = {}
         app.run(host='127.0.0.1', port=5000, debug=True)

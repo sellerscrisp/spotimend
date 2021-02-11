@@ -1,5 +1,6 @@
 import json
 import requests
+import time
 from flask import Blueprint, render_template, session, redirect, url_for, request
 from spotimend.api.spotify_handler import SpotifyHandler
 
@@ -44,3 +45,8 @@ def profile():
         )
 
     return render_template('profile.html')
+
+
+@profile_blueprint.route('/profile/like')
+def profile_like():
+    """"""

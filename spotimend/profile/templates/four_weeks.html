@@ -1,4 +1,3 @@
-{% from '_modal.html' import render_modal %}
 <table class="table table-responsive">
     <thead class="text-uppercase">
         <tr>
@@ -22,7 +21,7 @@
             <tr>
                 <td id="heart">
                     <div value="{{ track_id }}">
-                        <i class="far fa-heart"></i>
+                        <!-- <i class="far fa-heart"></i> -->
                     </div>
                 </td>
                 <td style="width: 60px;">
@@ -40,12 +39,12 @@
                 </td>
                 <td class="modal-btn">
                     <form action="" method="POST">
-                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#myModal">
+                        <!-- <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#myModal">
                             <i class="fas fa-ellipsis-h"></i>
-                        </button>
+                        </button> -->
                     </form>
                     <!-- Modal include -- should probably find a better way to do this -->
-                    {{ render_modal("{{ track_name | safe }}", "{{ artist_name | safe }}", "{{ track_id | safe }}") }}
+
                 </td>
             </tr>
             {% endfor %}

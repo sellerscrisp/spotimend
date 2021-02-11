@@ -1,7 +1,8 @@
 import json
 import requests
-from flask import Blueprint, render_template, session, url_for, request, redirect
+from flask import Blueprint, render_template, session, url_for, request, redirect, flash
 from spotimend.api.spotify_handler import SpotifyHandler
+
 
 recents_blueprint = Blueprint('recents', __name__, template_folder='templates')
 spotify = SpotifyHandler()
@@ -10,8 +11,11 @@ spotify = SpotifyHandler()
 @recents_blueprint.route('/recents', methods=['GET', 'POST'])
 def recents():
     """"""
+    try:
+        authorization_header = session['authorization_header']
+    except ValueError:
 
-    authorization_header = session['authorization_header']
+        return redirect('/')
 
     if request.method == 'GET':
         profile_data = spotify.get_user_profile_data(
@@ -24,10 +28,14 @@ def recents():
         recently_played = spotify.get_recently_played_data(
             authorization_header
         )
-
-        curr_playing = spotify.get_currently_playing_data(
-            authorization_header
-        )
+        try:
+            curr_playing = spotify.get_currently_playing_data(
+                authorization_header
+            )
+        except ValueError:
+            curr_playing = {}
+            flash(
+                'No song currently playing.', 'warning')
 
         return render_template(
             'recents.html',

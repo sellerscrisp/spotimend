@@ -1,3 +1,4 @@
+{% if curr_playing | length %}
 {% for curr in curr_playing  %}
 {% set track_img = curr['track_img'] %}
 {% set track_id = curr['track_id'] %}
@@ -13,19 +14,36 @@
                     <p class="lead mt-0">{{ track_artist }}</p>
                 </div>
                 <div class="col-1 text-end pr-5">
+                    <div class="form-group" style="display: none;">
+
+                    </div>
+                    <!-- <button id="heart" onclick="submit_like()" class="btn btn-success"> -->
                     <span>
-                        <i class="far fa-heart" data-bs-toggle="tooltip" data-bs-placement="left" data-type="success"
-                            title="27">
-                        </i>
+                        <!-- <i class="far fa-heart"></i> -->
                     </span>
-                    <span><i class="fas fa-ellipsis-h"></i></span>
+                    <!-- </button> -->
+                    <span>
+                        <i class="fas fa-ellipsis-h"></i>
+                    </span>
                 </div>
             </div>
         </div>
-        <form action="/recents/next" method="GET">
-            <button type="submit" class="btn btn-success">Get Audio Features</button>
+        <form action="/recents" method="GET">
+            <button type="submit" class="btn btn-success">Refresh</button>
             <input type="text" name="" value="{{ track_id }}" placeholder="{{ track_id }}" style="display: none;">
         </form>
     </div>
 </div>
 {% endfor %}
+{% else %}
+<div>
+    <form action="/recents" method="GET">
+        <p class="lead">
+            Please start playing a track and
+            <button type="submit" class="btn btn-success btn-sm">refresh</button>
+            <input type="text" name="" value="{{ track_id }}" placeholder="{{ track_id }}" style="display: none;">
+            the page!
+        </p>
+    </form>
+</div>
+{% endif %}

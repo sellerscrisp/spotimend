@@ -3,7 +3,7 @@ from flask import Flask
 from config import config_settings
 # from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
-from flask_script import Manager
+# from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
 from spotimend.models.models import connect_db
 # from flask_login import LoginManager
@@ -27,7 +27,7 @@ def create_app():
     app = Flask(__name__)
     db = SQLAlchemy()
     migrate = Migrate(app, db)
-    manager = Manager(app)
+    # manager = Manager(app)
     # login_manager = LoginManager()
 
     app.config.from_object(config_settings['development'])
@@ -35,7 +35,7 @@ def create_app():
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 
-    manager.add_command('db', MigrateCommand)
+    # manager.add_command('db', MigrateCommand)
     # login_manager.init_app(app)
 
     app.register_blueprint(index_blueprint)

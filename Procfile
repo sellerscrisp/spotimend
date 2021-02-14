@@ -1,1 +1,1 @@
-web: gunicorn run:spotimend
+web: gunicorn spotimend:create_app()

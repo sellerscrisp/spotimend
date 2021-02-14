@@ -1,1 +1,1 @@
-web: gunicorn spotimend:run
+web: gunicorn run:spotimend

@@ -4,7 +4,7 @@ from config import config_settings
 # from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
 # from flask_script import Manager
-from flask_migrate import Migrate, MigrateCommand
+# from flask_migrate import Migrate, MigrateCommand
 from spotimend.models.models import connect_db
 # from flask_login import LoginManager
 
@@ -26,7 +26,7 @@ def create_app():
     """Create and return app."""
     app = Flask(__name__)
     db = SQLAlchemy()
-    migrate = Migrate(app, db)
+    # migrate = Migrate(app, db)
     # manager = Manager(app)
     # login_manager = LoginManager()
 

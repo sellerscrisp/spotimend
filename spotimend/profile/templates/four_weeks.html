@@ -18,10 +18,12 @@
             {% set track_name = track['track_name'] %}
             {% set track_popularity = track['track_popularity'] %}
             {% set track_id = track['track_id'] %}
+            {% set track_uri = track['track_uri'] %}
             <tr>
                 <td id="heart">
                     <div value="{{ track_id }}">
                         <!-- <i class="far fa-heart"></i> -->
+                        <a href="{{ track_uri }}"><i class="fas fa-play"></i></a>
                     </div>
                 </td>
                 <td style="width: 60px;">

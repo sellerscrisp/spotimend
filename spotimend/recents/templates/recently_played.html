@@ -15,9 +15,11 @@
             {% set track_name = track['track_name'] %}
             {% set track_img = track['track_img'] %}
             {% set track_popularity = track['track_popularity'] %}
+            {% set track_uri = track['track_uri'] %}
             <tr>
                 <td id="heart">
                     <!-- <i class="far fa-heart"></i> -->
+                    <a href="{{ track_uri }}"><i class="fas fa-play"></i></a>
                 </td>
                 <td style="width: 60px;">
                     <img src="{{ track_img }}" alt="" class="img-fluid thumbnail shadow"></td>

@@ -14,24 +14,12 @@
                     <p class="lead mt-0">{{ track_artist }}</p>
                 </div>
                 <div class="col-1 text-end pr-5">
-                    <div class="form-group" style="display: none;">
-
-                    </div>
-                    <!-- <button id="heart" onclick="submit_like()" class="btn btn-success"> -->
                     <span>
-                        <!-- <i class="far fa-heart"></i> -->
-                    </span>
-                    <!-- </button> -->
-                    <span>
-                        <i class="fas fa-ellipsis-h"></i>
+                        <a onclick="refreshPage()"><i class="fas fa-sync-alt"></i></a>
                     </span>
                 </div>
             </div>
         </div>
-        <form action="/recents" method="GET">
-            <button type="submit" class="btn btn-success">Refresh</button>
-            <input type="text" name="" value="{{ track_id }}" placeholder="{{ track_id }}" style="display: none;">
-        </form>
     </div>
 </div>
 {% endfor %}

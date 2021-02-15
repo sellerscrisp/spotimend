@@ -21,7 +21,7 @@ class SpotifyClient:
     SCOPE = 'user-top-read user-read-currently-playing playlist-modify-public user-read-recently-played'
 
     # Client-side params for callback & auth
-    CLIENT_SIDE_URL = 'http://127.0.0.1'
+    CLIENT_SIDE_URL = 'https://spotimend.crisp.pw'
 
     def __init__(self, client_id, client_secret, client_side_url=CLIENT_SIDE_URL, port=None):
         """"""

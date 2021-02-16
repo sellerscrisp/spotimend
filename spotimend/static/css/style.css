@@ -222,13 +222,16 @@ thead {
     width: 20px;
 }
 
+#heart.fa {
+    background-color: red;
+}
+
 
 /* ------------------------ bootstrap modal ------------------------ */
 .modal {
     background: rgb(29, 185, 84);
     background: linear-gradient(-45deg, #1db95433, #12121228, #1db9541c, #12121262);
     background-size: 400% 400%;
-
     animation: gradient 25s ease infinite;
 }
 

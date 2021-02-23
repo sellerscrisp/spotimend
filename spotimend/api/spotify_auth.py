@@ -8,7 +8,7 @@ auth_blueprint = Blueprint('auth', __name__)
 client_id = os.environ.get('CLIENT_ID')
 client_secret = os.environ.get('CLIENT_SECRET')
 
-client = SpotifyClient(client_id, client_secret, port=None)
+client = SpotifyClient(client_id, client_secret, port=5000)
 
 
 @auth_blueprint.route('/login', methods=['POST', 'GET'])

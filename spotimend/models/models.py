@@ -84,11 +84,11 @@ class User(db.Model):
     @classmethod
     def register(cls, username, password, email):
         """Register user, set password."""
-        hashed = bcrypt.generate_password_hash(password)
-        hashed_utf8 = hashed.decode("utf8")
+        hashed = bcrypt.generate_password_hash(password).decode('UTF-8')
+
         user = cls(
             username=username,
-            password=hashed_utf8,
+            password=hashed,
             email=email,
 
         )
@@ -97,13 +97,15 @@ class User(db.Model):
         return user
 
     @classmethod
-    def authenticate(cls, username, pwd):
+    def authenticate(cls, username, password):
         """Validates usrname and password."""
-        u = User.query.filter_by(username=username).first()
 
-        if u and bcrypt.check_password_hash(u.password, pwd):
+        user = cls.query.filter_by(username=username).first()
 
-            return u
+        if user:
+            is_auth = bcrypt.check_password_hash(user.password, password)
+            if is_auth:
+                return user
         else:
             return False
 

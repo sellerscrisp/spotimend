@@ -21,11 +21,12 @@ from spotimend.errors.errors import errors_blueprint
 from spotimend.user.user_signup import user_signup_blueprint
 from spotimend.user.user_login import user_login_blueprint
 
+app = Flask(__name__)
+db = SQLAlchemy()
+
 
 def create_app():
     """Create and return app."""
-    app = Flask(__name__)
-    db = SQLAlchemy()
     # migrate = Migrate(app, db)
     # manager = Manager(app)
     # login_manager = LoginManager()

@@ -29,7 +29,11 @@ p.green {
     color: #1DB954;
 }
 
-.text-success {
+p.text-success,
+h1.text-success,
+h2.text-success,
+h3.text-success,
+h4.text-success {
     color: #1DB954
 }
 
@@ -218,13 +222,16 @@ thead {
     width: 20px;
 }
 
+#heart.fa {
+    background-color: red;
+}
+
 
 /* ------------------------ bootstrap modal ------------------------ */
 .modal {
     background: rgb(29, 185, 84);
     background: linear-gradient(-45deg, #1db95433, #12121228, #1db9541c, #12121262);
     background-size: 400% 400%;
-
     animation: gradient 25s ease infinite;
 }
 
@@ -486,25 +493,30 @@ span.load:nth-child(9) {
 
 /* --------------------------- Bootstrap Tooltips --------------------------- */
 .tooltip .tooltip-inner {
-    background-color: #1db954;
+    background-color: #1f1f1f;
+    border: white 1px solid;
 }
 
-.tooltip.top>.tooltip-arrow {
-    border-top-color: #1db954;
+.tooltip .tooltip-arrow::before {
+    border-top-color: #1f1f1f;
+    border: white 1px solid;
 }
 
 .tooltip.right>.tooltip-arrow {
     border-right-color: transparent;
     background-color: transparent;
     color: transparent;
+    border: white 1px solid;
 }
 
 .tooltip.bottom.tooltip-arrow {
-    border-bottom-color: #1db954;
+    border-bottom-color: #1f1f1f;
+    border: white 2px solid;
 }
 
 .tooltip.left>.tooltip-arrow {
-    border-left-color: #1db954;
+    border-left-color: #1f1f1f;
+    border: white 1px solid;
 }
 
 
@@ -514,8 +526,153 @@ span.load:nth-child(9) {
     border-color: #dbdbdb3b;
     border-width: 1px;
     border-radius: 0%;
+    top: -11px !important;
 }
 
 .card .card-body .card-title h5 {
     margin-bottom: 0px;
+}
+
+hr {
+    background-color: #1DB954;
+}
+
+
+/* ---------------------------- Bootstrap Alerts ---------------------------- */
+/* DANGER */
+.alert-danger.custom {
+    background: #1d1d1d;
+    border: 1px solid #ff4444;
+    border-left: 6px solid #ff4444;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, .2);
+    border-radius: 0;
+    z-index: 999;
+    height: 80px;
+}
+
+.alert-danger.custom .fa {
+    color: #ff4444;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 40px;
+}
+
+.alert-danger .alert-body {
+    padding-left: 0.75rem;
+    display: table-cell;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.alert-danger .alert-header {
+    font-weight: 700;
+    color: #ff4444;
+    padding: 0;
+    margin: 0;
+}
+
+.alert-danger .btn-close {
+    background-color: #ff4444;
+    margin: 0 auto;
+    float: right;
+    vertical-align: middle;
+    margin-top: -50px;
+}
+
+.alert-danger>div:after {
+    clear: both;
+    content: '';
+    display: table;
+}
+
+/* SUCCESS */
+.alert-success.custom {
+    background: #1d1d1d;
+    border: 1px solid #1DB954;
+    border-left: 6px solid #1DB954;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, .2);
+    border-radius: 0;
+    z-index: 999;
+    height: 80px;
+}
+
+.alert-success.custom .fa {
+    color: #1DB954;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 40px;
+}
+
+.alert-success .alert-body {
+    padding-left: 0.75rem;
+    display: table-cell;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.alert-success .alert-header {
+    font-weight: 700;
+    color: #1DB954;
+    padding: 0;
+    margin: 0;
+}
+
+.alert-success .btn-close {
+    background-color: #1DB954;
+    margin: 0 auto;
+    float: right;
+    vertical-align: middle;
+    margin-top: -50px;
+}
+
+.alert-success>div:after {
+    clear: both;
+    content: '';
+    display: table;
+}
+
+/* WARNING */
+.alert-warning.custom {
+    background: #1d1d1d;
+    border: 1px solid #d49156;
+    border-left: 6px solid #d49156;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, .2);
+    border-radius: 0;
+    z-index: 999;
+    height: 80px;
+}
+
+.alert-warning.custom .fa {
+    color: #d49156;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 40px;
+}
+
+.alert-warning .alert-body {
+    padding-left: 0.75rem;
+    display: table-cell;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.alert-warning .alert-header {
+    font-weight: 700;
+    color: #d49156;
+    padding: 0;
+    margin: 0;
+}
+
+.alert-warning .btn-close {
+    background-color: #d49156;
+    margin: 0 auto;
+    float: right;
+    vertical-align: middle;
+    margin-top: -50px;
+}
+
+.alert-warning>div:after {
+    clear: both;
+    content: '';
+    display: table;
 }

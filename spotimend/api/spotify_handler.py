@@ -172,6 +172,7 @@ class SpotifyHandler:
                 'track_name': track['track']['name'],
                 'track_img': track['track']['album']['images'][0]['url'],
                 'track_popularity': track['track']['popularity'],
+                'track_uri': track['track']['uri'],
             })
 
         return recently_data

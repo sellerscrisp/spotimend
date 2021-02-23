@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField
-from wtforms.validators import InputRequired, Length
+from wtforms.validators import DataRequired, InputRequired, Length
 
 # from spotimend.api.spotify_handler import SpotifyHandler
 
@@ -15,6 +15,10 @@ class UserForm(FlaskForm):
 class RegisterForm(FlaskForm):
     username = StringField('Username', validators=[InputRequired()])
     password = PasswordField('Password', validators=[InputRequired()])
+    # confirm_password = PasswordField(
+    #     'Confirm Password',
+    #     validators=[DataRequired()]
+    # )
     email = StringField('Email', validators=[InputRequired()])
 
 

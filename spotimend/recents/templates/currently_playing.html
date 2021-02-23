@@ -1,3 +1,4 @@
+{% if curr_playing | length %}
 {% for curr in curr_playing  %}
 {% set track_img = curr['track_img'] %}
 {% set track_id = curr['track_id'] %}
@@ -14,18 +15,23 @@
                 </div>
                 <div class="col-1 text-end pr-5">
                     <span>
-                        <i class="far fa-heart" data-bs-toggle="tooltip" data-bs-placement="left" data-type="success"
-                            title="27">
-                        </i>
+                        <a onclick="refreshPage()"><i class="fas fa-sync-alt"></i></a>
                     </span>
-                    <span><i class="fas fa-ellipsis-h"></i></span>
                 </div>
             </div>
         </div>
-        <form action="/recents/next" method="GET">
-            <button type="submit" class="btn btn-success">Get Audio Features</button>
-            <input type="text" name="" value="{{ track_id }}" placeholder="{{ track_id }}" style="display: none;">
-        </form>
     </div>
 </div>
 {% endfor %}
+{% else %}
+<div>
+    <form action="/recents" method="GET">
+        <p class="lead">
+            Please start playing a track and
+            <button type="submit" class="btn btn-success btn-sm">refresh</button>
+            <input type="text" name="" value="{{ track_id }}" placeholder="{{ track_id }}" style="display: none;">
+            the page!
+        </p>
+    </form>
+</div>
+{% endif %}

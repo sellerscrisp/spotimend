@@ -1,7 +1,7 @@
 import json
 import requests
 import time
-from flask import Blueprint, render_template, session, redirect, url_for, request
+from flask import Blueprint, render_template, session, redirect, url_for, request, flash
 from spotimend.utils.api.spotify_handler import SpotifyHandler
 
 profile_blueprint = Blueprint('profile', __name__, template_folder='templates')
@@ -11,7 +11,11 @@ spotify = SpotifyHandler()
 
 @profile_blueprint.route('/profile', methods=['GET', 'POST'])
 def profile():
-    authorization_header = session['authorization_header']
+    try:
+        authorization_header = session['authorization_header']
+    except:
+        flash('Your session expired so we asked you to login again.', 'success')
+        return redirect('/login')
 
     def extract_letters(str):
         return ''.join([letter for letter in str if not letter.isdigit()])

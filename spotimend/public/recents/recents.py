@@ -13,9 +13,9 @@ def recents():
     """"""
     try:
         authorization_header = session['authorization_header']
-    except ValueError:
-
-        return redirect('/')
+    except:
+        flash('Your session expired so we asked you to login again.', 'success')
+        return redirect('/login')
 
     if request.method == 'GET':
         profile_data = spotify.get_user_profile_data(

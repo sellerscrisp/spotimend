@@ -87,4 +87,4 @@ Contributions are what make the open source community such an amazing place to l
 * Store songs and their respective likes
 * Song seed recommendations
 * Playlist generation
-* Database configuration and implementation
+* ~~Database configuration and implementation~~

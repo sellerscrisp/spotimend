@@ -1,0 +1,37 @@
+{% if curr_playing | length %}
+{% for curr in curr_playing  %}
+{% set track_img = curr['track_img'] %}
+{% set track_id = curr['track_id'] %}
+{% set track_name = curr['track_name'] %}
+{% set track_artist = curr['track_artist'] %}
+<div class="card mx-auto d-flex mt-5">
+    <div class="card-body">
+        <img class="card-img-top rounded-0" src="{{ track_img }}" alt="">
+        <div class="card-title mt-3 mb-0">
+            <div class="row">
+                <div class="col-11 text-start">
+                    <h5>{{ track_name }}</h5>
+                    <p class="lead mt-0">{{ track_artist }}</p>
+                </div>
+                <div class="col-1 text-end pr-5">
+                    <span>
+                        <a onclick="refreshPage()"><i class="fas fa-sync-alt"></i></a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% else %}
+<div>
+    <form action="/recents" method="GET">
+        <p class="lead">
+            Please start playing a track and
+            <button type="submit" class="btn btn-success btn-sm">refresh</button>
+            <input type="text" name="" value="{{ track_id }}" placeholder="{{ track_id }}" style="display: none;">
+            the page!
+        </p>
+    </form>
+</div>
+{% endif %}

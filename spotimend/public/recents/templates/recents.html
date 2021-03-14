@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}Recents{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-7 col-md-12 col-sm-12">
+            <div class="row">
+                <div class="col-2">
+                    <img class="rounded-circle img-profile mt-5 mb-2" src="{{ profile_data['images'][0]['url'] }}">
+                </div>
+                <div class="col-10">
+                    <h1 class="mt-5 mb-0 align-content-around profile-top">{{ user_display_name }}'s Profile</h1>
+                    <p class="lead mt-0 profile-top">{{ profile_data['followers']['total'] }} Followers </p>
+                </div>
+            </div>
+            <nav>
+                <div class="nav nav-pills nav-success" id="nav-tab">
+                    <a class="nav-link" href="/profile">Top Tracks</a>
+                    <a class="nav-link mx-2 active" onClick="refreshPage()" data-bs-toggle="tooltip"
+                        data-bs-placement="bottom" data-type="success" title="Click to refresh!">Recents
+                    </a>
+                </div>
+            </nav>
+        </div>
+        <div class="col-lg-5 col-md-12 col-sm-12 text-lg-end text-md-center text-sm-center mt-5">
+            <h1 class="display-1 mb-0"><i class="fab fa-spotify"
+                    style="align-items:center; margin-right: 10px;"></i>Recents</h1>
+            <!-- <p class="lead mt-0">Select some songs you want to model your new playlist off of.</p> -->
+        </div>
+    </div>
+    <!-- TRACKS INLCLUDE -->
+    <div class="row mt-5">
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <hr class="mb-3">
+            <p class="text-uppercase green text-center">Currently Playing</p>
+            <hr class="my-1">
+            <div class="col" style="margin-top: 65px !important;">
+                {% include 'currently_playing.html' %}
+            </div>
+        </div>
+        <div class="col-lg-8 col-md-6 col-sm-12 mt-lg-0 mt-md-0 mt-sm-5">
+            <hr class="mb-3">
+            <p class="text-uppercase green text-center">Recently Played Tracks</p>
+            <hr class="my-1">
+            <div class="col">
+                {% include 'recently_played.html' %}
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function refreshPage() {
+        window.location.reload();
+    }
+</script>
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}

@@ -1,0 +1,53 @@
+<table class="table table-responsive">
+    <thead class="text-uppercase">
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Title</th>
+            <th scope="col"></th>
+            <th class="popularity" scope="col justify-content-end">Popularity</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <div class="row d-flex align-items-center">
+        <tbody class="">
+            {% for track in top_tracks_medium %}
+            {% set artist_name = track['artist_name'] %}
+            {% set artist_id = track['artist_id'] %}
+            {% set track_img = track['track_img'] %}
+            {% set track_img = track['track_img'] %}
+            {% set track_name = track['track_name'] %}
+            {% set track_popularity = track['track_popularity'] %}
+            {% set track_id = track['track_id'] %}
+            {% set track_uri = track['track_uri'] %}
+            <tr>
+                <div class="col d-block align-baseline">
+                    <td id="heart">
+                        <div value="{{ track_id }}">
+                            <!-- <i class="far fa-heart"></i> -->
+                            <a href="{{ track_uri }}"><i class="fas fa-play"></i></a>
+                        </div>
+                    </td>
+                    <td style="width: 60px;">
+                        <img src="{{ track_img }}" alt="" class="img-fluid thumbnail shadow">
+                    </td>
+                    <td class="title-table">
+                        {{ track_name }}
+                        <br>
+                        <span>{{ artist_name }}</span>
+                    </td>
+                </div>
+                <td>
+                    <div class="col d-block align-baseline text-end">
+                        {{ track_popularity }}
+                    </div>
+                </td>
+                <td class="modal-btn">
+                    <!-- <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#myModal">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </button> -->
+                </td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </div>
+</table>

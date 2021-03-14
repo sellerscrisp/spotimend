@@ -7,9 +7,9 @@ from flask import url_for, request
 from sqlalchemy.exc import IntegrityError
 from unittest import TestCase, mock
 
-import spotimend.api.spotify_auth
-from spotimend.api.spotify_client import SpotifyClient
-from spotimend.api.spotify_handler import SpotifyHandler
+import spotimend.utils.api.spotify_auth
+from spotimend.utils.api.spotify_client import SpotifyClient
+from spotimend.utils.api.spotify_handler import SpotifyHandler
 
 
 app.config['WTF_CSRF_ENABLED'] = False

@@ -1,8 +1,8 @@
 import os
 
-from spotimend.models.models import User
+from spotimend.utils.models.models import User
 from spotimend import create_app, app
-from spotimend.models.models import db
+from spotimend.utils.models.models import db
 
 from flask import url_for, request
 from sqlalchemy.exc import IntegrityError

@@ -2,6 +2,7 @@ from docs.requests.spotify.main import CLIENT_SIDE_URL
 import requests
 import json
 from urllib.parse import quote
+from flask import session
 
 
 class SpotifyClient:
@@ -21,9 +22,9 @@ class SpotifyClient:
     SCOPE = 'user-top-read user-read-currently-playing playlist-modify-public user-read-recently-played'
 
     # Client-side params for callback & auth
-    CLIENT_SIDE_URL = 'http://127.0.0.1'
+    CLIENT_SIDE_URL = 'https://spotimend.crisp.pw'
 
-    def __init__(self, client_id, client_secret, client_side_url=CLIENT_SIDE_URL, port=5000):
+    def __init__(self, client_id, client_secret, client_side_url=CLIENT_SIDE_URL, port=None):
         """"""
 
         self.client_id = client_id
@@ -32,8 +33,8 @@ class SpotifyClient:
         self.port = port
         self._access_token = ''
         self.authorization_header = ''
-        # if port is None else f'{self.client_side_url}:{self.port}/callback/q'
-        self.redirect_uri = f'{self.client_side_url}:{self.port}/callback/q'
+
+        self.redirect_uri = f'{self.client_side_url}/callback/q' if port is None else f'{self.client_side_url}:{self.port}/callback/q'
 
     def get_auth_url(self):
         """Get the authorization URL."""
@@ -68,6 +69,8 @@ class SpotifyClient:
         self._access_token = response_data['access_token']
         self.authorization_header = {
             "Authorization": f"Bearer {self._access_token}"}
+
+        session['access_token'] = response_data['access_token']
 
         return dict(
             access_token=response_data['access_token'],
